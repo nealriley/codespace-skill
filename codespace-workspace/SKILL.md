@@ -1,3 +1,4 @@
+---
 name: codespace-workspace
 description: >
   Work with this git-based project running in a GitHub Codespace/devcontainer
