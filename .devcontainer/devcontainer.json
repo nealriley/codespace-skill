@@ -1,0 +1,21 @@
+{
+  "name": "Codespace Agent Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "postCreateCommand": "pip install -r codespace-agent/requirements.txt",
+  "postStartCommand": "mkdir -p logs && uvicorn codespace-agent.app:app --host 0.0.0.0 --port 8000 --log-level info >> logs/codespace-agent.log 2>&1 &",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Codespace Agent",
+      "onAutoForward": "notify",
+      "visibility": "public"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  }
+}
